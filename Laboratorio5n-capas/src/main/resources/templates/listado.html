@@ -24,5 +24,9 @@
 		</th:block>
 	</table>
 	<br>
+	<form th:action="@{/borrar}" method="post">
+		<label>Codigo de estudiante a borrar:</label><input type="number" id="codigo" name="codigo"><br>
+		<input type="submit" value="Borrar">
+	</form>
 </body>
 </html>
