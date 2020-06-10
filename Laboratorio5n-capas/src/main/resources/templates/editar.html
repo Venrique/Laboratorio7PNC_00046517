@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>Ingreso de estudiante</title>
+<title>Editar estudiante</title>
 </head>
 <body>
-	<h1>Insertar estudiante</h1>
+	<h1>Editar estudiante</h1>
 	<form th:action="@{/insertar}" th:object="${estudiante}" method="post">
+		<input type="hidden" th:field="*{codigoEstudiante}"/>
 		<label>Nombre</label><input type="text" th:field="*{nombre}"><br>
 		<span th:errors="*{nombre}" style="color: #FF0000;"></span><br>
 		<label>Apellido</label><input type="text" th:field="*{apellido}"><br>
@@ -19,6 +20,6 @@
 		<input type="submit" value="Guardar"/>
 	</form>
 	
-	<a href="/listado">Ver, borrar o editar estudiantes</a>
+	<a href="/listado">Ver Estudiantes</a>
 </body>
 </html>

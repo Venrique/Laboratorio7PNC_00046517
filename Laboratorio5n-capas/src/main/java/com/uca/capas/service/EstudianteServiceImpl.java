@@ -10,35 +10,37 @@ import org.springframework.stereotype.Service;
 
 import com.uca.capas.dao.EstudianteDAO;
 import com.uca.capas.domain.Estudiante;
+import com.uca.capas.repositories.EstudianteRepo;
 
 @Service
 public class EstudianteServiceImpl implements EstudianteService{
 	
 	@Autowired
-	EstudianteDAO estudianteDao;
+	EstudianteRepo estudianteRepo;
+	//EstudianteDAO estudianteDao;
 	
 	
 	public List<Estudiante> findAll() throws DataAccessException {
-		return estudianteDao.findAll();
+		return estudianteRepo.findAll();
 	}
 
 	
 	@Transactional
 	public void insert(Estudiante estudiante) throws DataAccessException {
-		estudianteDao.insert(estudiante);
+		estudianteRepo.save(estudiante);
 		
 	}
 
 	@Transactional
 	public void delete(Estudiante estudiante) throws DataAccessException {
-		estudianteDao.delete(estudiante);
+		estudianteRepo.delete(estudiante);
 		
 	}
 
 
 	
 	public Estudiante findOne(Integer codigo) throws DataAccessException {
-		return estudianteDao.findOne(codigo);
+		return estudianteRepo.getOne(codigo);
 	}
 
 
